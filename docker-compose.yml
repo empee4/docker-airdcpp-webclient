@@ -2,9 +2,11 @@
 version: '2.1'
 services:
   airdcpp:
-    image: gangefors/airdcpp-webclient
+    image: empee4/airdcpp-webclient
     volumes:
       - airdcpp:/.airdcpp
+      - downloads:/Downloads
+      - share:/Share
     user: ${UID:-0}:${GID:-0}
     hostname: airdcpp
     ports:
@@ -16,4 +18,8 @@ services:
 
 volumes:
   airdcpp:
+    driver: local
+  downloads:
+    driver: local
+  share:
     driver: local
